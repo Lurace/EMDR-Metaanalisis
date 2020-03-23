@@ -4,13 +4,13 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Agregación de estudios
 Metaanálisis calculado con un modelo de efectos aleatorios usando el estimador tau2 Hartung-Knapp-Sidik-Jonkman (HKSJ). Se emplea la funcón *metacont* de las librería *metafor* y *meta* de R.
 
-```{r read_data, warning=FALSE, echo=FALSE}
+```{r read_data, warning=FALSE}
 library(readxl)
 Metaanalisis_EMDR <- read_excel("C:/Users/kart__000/OneDrive/EMDR study/Metaanalisis EMDR.xlsx")
 ```

@@ -9,16 +9,8 @@ estimador tau2 Hartung-Knapp-Sidik-Jonkman (HKSJ). Se emplea la funcón
 
 ### Librerías y versiones R
 
-``` r
-library(meta)
-```
-
     ## Loading 'meta' package (version 4.11-0).
     ## Type 'help(meta)' for a brief overview.
-
-``` r
-library(metafor)
-```
 
     ## Loading required package: Matrix
 
@@ -33,24 +25,6 @@ library(metafor)
     ##     baujat, forest, funnel, funnel.default, labbe, radial, trimfill
 
 ### Resultados
-
-``` r
-m.hksj.raw <- metacont(Ne,
-                       Me,
-                       Se,
-                       Nc,
-                       Mc,
-                       Sc,
-                       data = Metaanalisis_EMDR,
-                       studlab = paste(Author),
-                       comb.fixed = TRUE,
-                       comb.random = TRUE,
-                       method.tau = "SJ",
-                       hakn = TRUE,
-                       prediction = TRUE,
-                       sm = "SMD")
-m.hksj.raw
-```
 
     ##                     SMD             95%-CI %W(fixed) %W(random)
     ## Lehnung(2017)   -2.4268 [-3.7553; -1.0983]      17.1       43.9
@@ -76,9 +50,5 @@ m.hksj.raw
     ## - Hedges' g (bias corrected standardised mean difference)
 
 ## Forest plot
-
-``` r
-forest(m.hksj.raw)
-```
 
 ![](Metaanalisis_EMDR_files/figure-gfm/forest_plot-1.png)<!-- -->
