@@ -1,0 +1,50 @@
+---
+title: "Meta análisis EMDR"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Agregación de estudios
+Metaanálisis calculado con un modelo de efectos aleatorios usando el estimador tau2 Hartung-Knapp-Sidik-Jonkman (HKSJ). Se emplea la funcón *metacont* de las librería *metafor* y *meta* de R.
+
+```{r read_data, warning=FALSE, echo=FALSE}
+library(readxl)
+Metaanalisis_EMDR <- read_excel("C:/Users/kart__000/OneDrive/EMDR study/Metaanalisis EMDR.xlsx")
+```
+
+### Librerías y versiones R
+
+```{r metaanlisis_library, warning=FALSE}
+library(meta)
+library(metafor)
+```
+
+### Resultados
+
+```{r metaanlisis_calculation, warning=FALSE}
+m.hksj.raw <- metacont(Ne,
+                       Me,
+                       Se,
+                       Nc,
+                       Mc,
+                       Sc,
+                       data = Metaanalisis_EMDR,
+                       studlab = paste(Author),
+                       comb.fixed = TRUE,
+                       comb.random = TRUE,
+                       method.tau = "SJ",
+                       hakn = TRUE,
+                       prediction = TRUE,
+                       sm = "SMD")
+m.hksj.raw
+```
+
+## Forest plot
+
+```{r forest_plot}
+forest(m.hksj.raw)
+```
+
